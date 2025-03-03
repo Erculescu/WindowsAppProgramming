@@ -5,6 +5,27 @@ namespace Semniar2
 {
     internal class Program
     {
+
+        static void afisareangajat(Angajat angajat,int nivel = 0)
+        {
+            Console.WriteLine($"{new string(' ', nivel * 3)}{angajat}");
+            //varianta 1 var manager = (Manager)angajat;
+            //varianta 2 if(angajat is Manager)
+            //varianta 3
+            var manager = angajat as Manager;
+            if (manager == null)
+            {
+                return;
+            }
+            else
+            {
+                foreach (var subordonat in manager.subordonati)
+                {
+                    afisareangajat(subordonat, nivel + 1);
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
             var ion = new Manager(1, "Ion", "manager");
@@ -26,6 +47,7 @@ namespace Semniar2
                 Console.WriteLine(angajat);
             }
 
+            afisareangajat(ion, 0);
         }
     }
 }
