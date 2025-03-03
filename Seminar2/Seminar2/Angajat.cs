@@ -22,7 +22,14 @@ namespace Seminar2
 
         public override string ToString()
         {
-            return $"#{marca,-3} {nume} ({functie}" + $",{(sef == null ? "-":sef)})";
+            var sefi = new List<string>();
+            var sef = this.sef;
+            while (sef != null)
+            {
+                sefi.Add(sef.nume);
+                sef = sef.sef;
+            }
+            return $"#{marca,-3} {nume} ({functie}" +$",superiori:{string.Join(", ",sefi)})"/* $",{(sef == null ? "-":sef)})"*/;
 
         }
 
