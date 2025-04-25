@@ -66,7 +66,8 @@
             // 
             anuleazaToolStripMenuItem.Name = "anuleazaToolStripMenuItem";
             anuleazaToolStripMenuItem.Size = new Size(359, 44);
-            anuleazaToolStripMenuItem.Text = "Anuleaza";
+            anuleazaToolStripMenuItem.Text = "Salveaza";
+            anuleazaToolStripMenuItem.Click += anuleazaToolStripMenuItem_Click;
             // 
             // ferestreToolStripMenuItem
             // 
@@ -87,6 +88,7 @@
             adaugareToolStripMenuItem.Name = "adaugareToolStripMenuItem";
             adaugareToolStripMenuItem.Size = new Size(359, 44);
             adaugareToolStripMenuItem.Text = "Adaugare";
+            adaugareToolStripMenuItem.Click += adaugareToolStripMenuItem_Click;
             // 
             // Form1
             // 
