@@ -25,6 +25,10 @@ namespace Exersare_10
             this.camere.Add(camera);
             
         }
+        public Stoc()
+        {
+            this.camere = new List<Camera>();
+        }
 
     }
 }
