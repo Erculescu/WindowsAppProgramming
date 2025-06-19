@@ -58,6 +58,7 @@
             listView1.Size = new Size(771, 719);
             listView1.TabIndex = 1;
             listView1.UseCompatibleStateImageBehavior = false;
+            listView1.DoubleClick += listView1_DoubleClick;
             // 
             // Form1
             // 

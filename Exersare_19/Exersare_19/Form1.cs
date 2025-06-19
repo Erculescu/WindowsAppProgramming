@@ -4,8 +4,8 @@ namespace Exersare_19
 {
     public partial class Form1 : Form
     {
-        
-        
+
+
         public Form1()
         {
 
@@ -16,14 +16,14 @@ namespace Exersare_19
             listView1.Columns.Add("Nr Angajati", 200);
             Afisare();
             ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
-            ToolStripMenuItem stergere=new ToolStripMenuItem("Stergere");
+            ToolStripMenuItem stergere = new ToolStripMenuItem("Stergere");
             contextMenuStrip.Items.Add(stergere);
             listView1.ContextMenuStrip = contextMenuStrip;
             stergere.Click += (s, e) =>
             {
                 if (listView1.SelectedItems.Count > 0)
                 {
-                    foreach(ListViewItem item in listView1.SelectedItems)
+                    foreach (ListViewItem item in listView1.SelectedItems)
                     {
                         listView1.Items.Remove(item);
                     }
@@ -41,11 +41,21 @@ namespace Exersare_19
         private void Afisare()
         {
             listView1.Items.Clear();
-            foreach(var companie in Program.companii.Values)
+            foreach (var companie in Program.companii.Values)
             {
                 ListViewItem item = new ListViewItem(new string[] { companie.id.ToString(), companie.denumire, companie.angajati.Count.ToString() });
                 item.Tag = companie;
                 listView1.Items.Add(item);
+            }
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                Form3 form3 = new Form3(int.Parse(listView1.SelectedItems[0].Text));
+                form3.ShowDialog();
+                Afisare();
             }
         }
     }
